@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<table class="table table-striped" id="cart-table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Item Price</th> <!--added space for price (Faith)-->
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th> <!--For the updated price based on quantity (Faith)-->
+        
+        
+      </tr>
+    </thead>
+    <tbody id="cart-table-body">
+        <tr *ngFor="let product of products;">
+            <td>{{product.product.id}}</td>
+            <td>{{product.product.name}}</td>
+            <td>{{product.product.description}}</td>
+            <td>{{product.product.price}}</td> <!--Price in Spring Boot is visible in cart (Faith)-->
+            <td><button class="btn btn-outline-success" (click)="increment(product.product)"><i class="fa fa-plus">+</i></button>
+              {{product.quantity}}
+              <button class="btn btn-outline-success" (click)="decrement(product.product)"><i class="fa fa-minus">-</i></button></td>
+            <td>{{product.quantity*product.product.price}}</td> <!--updated price based on quantity (Faith)-->
+            <button class="btn btn-secondary" (click)="removeFromCart(product.product)">Remove Item</button> <!-- adding a button for taking an item out of the cart (Marvin)-->
+        </tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td class="style"><strong>Total: ${{totalPrice}}</strong></td></tr>
+    </tbody>
+</table>
+<!-- <h4>Total: ${{totalPrice}}</h4> -->
+<button class="btn btn-danger" [routerLink]="['/home']">Back</button>
+<button class="btn btn-warning" (click)="emptyCart()">Empty Cart</button>
+<button class="btn btn-success" [routerLink]="['/checkout']">Proceed to Checkout</button>
