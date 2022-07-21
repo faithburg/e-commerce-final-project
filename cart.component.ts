@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  // Added a Method to Decrement an Item in the Cart (Marvin)
+  // Method to Decrement an Item in the Cart
   decrement(product: Product): void {
 
     this.products.forEach(
@@ -69,7 +69,7 @@ export class CartComponent implements OnInit {
 
   }
 
-  // Added a Method to Increment an Item in the Cart (Marvin)
+  //Method to Increment an Item in the Cart 
   increment(product: Product): void {
 
     this.products.forEach(
@@ -88,7 +88,7 @@ export class CartComponent implements OnInit {
     );
   }
 
-  // Added a Method to Remove an Item in the Cart (Marvin)
+  // Method to Remove an Item in the Cart
   removeFromCart(product: Product): void {
     let tempCount = 0;
     let tempQuantity = 0;
